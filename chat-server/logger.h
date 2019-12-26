@@ -31,7 +31,7 @@ private:
     quint8 m_currentDay;
     void changeFolder();
 public:
-    explicit Logger(QObject *parent = 0);
+    explicit Logger(QObject *parent = nullptr);
     ~Logger();
 signals:
     void logMessage(QString &msg);

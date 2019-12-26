@@ -12,11 +12,14 @@
 class ChatServer : public QObject
 {
     Q_OBJECT
+
+public:
+    explicit ChatServer(QObject *parent = nullptr);
+
+    bool startServer(const quint16 nPort);
+    void stopServer(const QString &shutdownReason = "");
+
 private:
-    QTcpServer *m_tcpServer;
-    quint16 m_nextBlockSize;
-    quint16 m_port;
-    GeneralClientList m_clientList;
     void processMessage(ChannelMessage *msg);
     void processMessage(AuthorizationRequest *msg, QTcpSocket *socket);
     void processMessage(DisconnectMessage *msg);
@@ -30,15 +33,13 @@ private:
     void processMessage(UserInfoRequest *msg, QTcpSocket *socket);
     void processMessage(UserInfoChanged *msg);
     void processMessage(PasswordChangeRequest *msg);
+
     void sendMessageToClient(QTcpSocket *socket, ChatMessageBody *msgBody);
     void sendMessageToClient(QString username, ChatMessageBody *msgBody);
+
     void sendMessageToChannel(QString channelName, ChatMessageBody *msgBody);
+
     QString getSendableState(QString clientName);
-public:
-    enum { defaultPort = 33033 };
-    explicit ChatServer(QObject *parent = 0);
-    bool startServer(const quint16 nPort);
-    void stopServer(const QString &shutdownReason = "");
 
 signals:
     void serverLog(ErrorStatus, QString &message);
@@ -53,6 +54,15 @@ private slots:
 public slots:
 
     void setConfig(ChatServerConfig *pointer);
+
+public:
+    enum { defaultPort = 33033 };
+
+private:
+    QTcpServer *m_tcpServer;
+    quint16 m_nextBlockSize;
+    quint16 m_port;
+    GeneralClientList m_clientList;
 };
 
 #endif // CHATSERVER_H

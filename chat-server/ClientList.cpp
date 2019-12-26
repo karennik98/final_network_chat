@@ -258,12 +258,12 @@ ChatClient DBManager::getClient(QString username)
 }
 
 //"REPLACE INTO dummies (rowid, name, info)"
-//"VALUES (null, '%1', '%2');"
+//"VALUES (nullptr, '%1', '%2');"
 void DBManager::setClient(ChatClient &client)
 {
     QSqlQuery query;
     QString q = QString("REPLACE INTO %1 (rowid, name, password, info, status) "
-                        "VALUES (null, '%2', '%3', '%4', \"%5\");")
+                        "VALUES (nullptr, '%2', '%3', '%4', \"%5\");")
                         .arg(m_clientTableName)
                         .arg(client.username())
                         .arg(client.password())
@@ -322,7 +322,7 @@ void DBManager::setChannel(ChatChannel &channel)
 {
     QSqlQuery query;
     QString q = QString("REPLACE INTO %1 (rowid, name, topic, description) "
-                        "VALUES (null, '%2', '%3', '%4')")
+                        "VALUES (nullptr, '%2', '%3', '%4')")
                         .arg(m_channelTableName)
                         .arg(channel.name())
                         .arg(channel.topic())
@@ -357,7 +357,7 @@ void DBManager::addMembership(QString username, QString channelName)
 {
     QSqlQuery query;
     QString q = QString("INSERT INTO %1 (rowid, client, channel) "
-                        "VALUES (null, '%2', '%3')")
+                        "VALUES (nullptr, '%2', '%3')")
                         .arg(m_membershipTableName)
                         .arg(username)
                         .arg(channelName);

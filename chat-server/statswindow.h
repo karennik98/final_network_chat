@@ -18,15 +18,9 @@ class StatsWindow : public QMainWindow
 public:
     explicit StatsWindow(QWidget *parent = 0);
     ~StatsWindow();
-    
+
 private:
-    Ui::StatsWindow *ui;
-    ChatServer *m_server;
-    ConfigManager *m_settings;
-    Logger *m_logs;
     bool errorFilter(QVector<QString> vector, QString str);
-    QSqlTableModel *m_tableModel;
-    QModelIndex m_lastIndex;
 
 private slots:
     void startServer();
@@ -44,6 +38,14 @@ private slots:
     void on_addRecordPushButton_clicked();
     void enableDeleteRecordButton(QModelIndex index);
     void on_deleteRecordPushButton_clicked();
+
+private:
+    Ui::StatsWindow *ui;
+    ChatServer *m_server;
+    ConfigManager *m_settings;
+    Logger *m_logs;
+    QSqlTableModel *m_tableModel;
+    QModelIndex m_lastIndex;
     
 };
 

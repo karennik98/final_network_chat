@@ -21,12 +21,14 @@ private:
     QString m_userState;
     QTcpSocket *m_userSocket;
 public:
-    ChatClient(): m_userSocket(NULL) {}
+    ChatClient(): m_userSocket(nullptr) {}
+
     QString &username();
     QString &userInfo();
     QString &password();
     QString &userState();
     QTcpSocket *userSocket() const;
+
     void setUsername(QString name);
     void setUserInfo(QString info);
     void setPassword(QString pass);
@@ -48,13 +50,18 @@ public:
     ChatChannel() {}
     QString &name();
     void setName(QString name);
+
     QString &description();
     void setDescription(QString desc);
+
     QString &topic();
     void setTopic(QString topic);
+
     void addClient(QString username);
     void deleteClient(QString username);
+
     bool hasClient(QString username);
+
     void deleteAllClients();
 };
 
@@ -106,8 +113,9 @@ private:
     DBManager m_DB;
 
 public:
-    typedef QVector<QTcpSocket *> userSocketsList_t;
-    typedef QVectorIterator<QTcpSocket *> userSocketsListIterator_t;
+    using userSocketsList_t = QVector<QTcpSocket *>;
+    using userSocketsListIterator_t = QVectorIterator<QTcpSocket *>;
+
     enum AuthResult
     {
         arAllreadyAuthorized,

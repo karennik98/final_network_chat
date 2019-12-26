@@ -137,7 +137,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="postButton">
+         <widget class="QPushButton" name="sendButton">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -151,7 +151,7 @@
            </size>
           </property>
           <property name="text">
-           <string>Post</string>
+           <string>send</string>
           </property>
          </widget>
         </item>

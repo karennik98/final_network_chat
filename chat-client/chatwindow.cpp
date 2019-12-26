@@ -21,7 +21,6 @@ ChatWindow::ChatWindow(QWidget *parent) :
     m_menu.addAction("See all channels", m_channelListDialog, SLOT(show()));
     m_menu.addAction("Your profile", &m_ownerProfile, SLOT(show()));
     m_menu.addSeparator();
-    m_menu.addAction("About program", &m_aboutProgram, SLOT(show()));
     m_menu.addAction("About Qt", qApp, SLOT(aboutQt()));
     //combobox
     ui->statusComboBox->addItem("Online");
@@ -63,7 +62,6 @@ ChatWindow::ChatWindow(QWidget *parent) :
     //connect widgets of mainwindow
     connect(ui->smilesPushButton, SIGNAL(clicked()), m_smiles, SLOT(show()));
     connect(ui->allChannelsPushButton, SIGNAL(clicked()), m_channelListDialog, SLOT(show()));
-    connect(ui->postButton, SIGNAL(clicked()), this, SLOT(postMessage()));
     connect(ui->messageEdit, SIGNAL(returnPressed()), this, SLOT(postMessage()));
     connect(ui->statusComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onChangeStatus(int)));
     connect(&m_statusDialog, SIGNAL(statusChanged(QString)), this, SLOT(onChangeStatus(QString)));

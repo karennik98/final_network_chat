@@ -6,7 +6,7 @@ RegisterBot::RegisterBot(QObject *parent) :
 }
 
 RegisterBot::RegisterBot(QString &host, quint32 port, QString &username, QString &password, bool flag):
-    m_socket(NULL),
+    m_socket(nullptr),
     m_nextBlockSize(0),
     m_host(host),
     m_port(port),
@@ -56,7 +56,7 @@ void RegisterBot::botConnected()
 void RegisterBot::botGotMessage()
 {
     QTcpSocket *socket = (QTcpSocket*)sender();
-    if (socket == NULL)
+    if (socket == nullptr)
         return;
     QDataStream input(socket);
     input.setVersion(QDataStream::Qt_4_7);

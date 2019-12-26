@@ -117,7 +117,7 @@ UserListWidget::UserListWidget(QWidget *parent, QStringList *list) :
 
 void UserListWidget::contextMenuEvent(QContextMenuEvent *e)
 {
-    if(this->itemAt(e->pos()) != NULL)
+    if(this->itemAt(e->pos()) != nullptr)
     {
         QMenu *menu = new QMenu();
         //menu->addAction("Send private message", this, SLOT(sendPMSignal()));

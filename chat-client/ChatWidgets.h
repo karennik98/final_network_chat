@@ -16,7 +16,7 @@ class UserListWidget : public QListWidget
 {
     Q_OBJECT
 public:
-    explicit UserListWidget(QWidget *parent = 0, QStringList *list = NULL);
+    explicit UserListWidget(QWidget *parent = 0, QStringList *list = nullptr);
 private:
     QStringList *m_list;
 protected:
@@ -64,7 +64,7 @@ private slots:
     void replyLastMessage(QString message);
     void replyThemeChanged(QString theme);
 public:
-    explicit GeneralChatWidget(QWidget *parent = 0, QMap<QString, QString> *smilesMap = NULL, QString nick = "");
+    explicit GeneralChatWidget(QWidget *parent = 0, QMap<QString, QString> *smilesMap = nullptr, QString nick = "");
 signals:
     void onUserInformationClicked(QString nick);
     void onPrivateMessageClicked(QString nick);
@@ -101,7 +101,7 @@ private slots:
     void replyThemeChanged(QString theme);
 public:
     explicit ChatTabWidget(QWidget *parent = 0);
-    explicit ChatTabWidget(QWidget *parent = 0, QMap<QString, QString> *smilesMap = NULL);
+    explicit ChatTabWidget(QWidget *parent = 0, QMap<QString, QString> *smilesMap = nullptr);
     QString currentChannel();
     void setOwnerNick(QString nick);
 public slots:

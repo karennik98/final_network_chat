@@ -20,7 +20,7 @@ class chatTextBrowser : public QTextBrowser
 {
     Q_OBJECT
 public:
-    explicit chatTextBrowser(QWidget *parent = 0, QMap<QString, QString> *smilesMap = NULL);
+    explicit chatTextBrowser(QWidget *parent = 0, QMap<QString, QString> *smilesMap = nullptr);
     void setOwnerNick(QString nick);
     QString getOwnerNick();
 private:
